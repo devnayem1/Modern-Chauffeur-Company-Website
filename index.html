@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EliteRide Chauffeur | Premium Luxury Transportation</title>
+  <meta name="description" content="EliteRide offers premium chauffeur services for corporate executives, airport transfers, weddings, and VIP events. Experience luxury transportation at its finest." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C96A;
+      --gold-dark: #9A7A2E;
+      --black: #0A0A0A;
+      --dark: #111111;
+      --dark2: #1A1A1A;
+      --dark3: #222222;
+      --gray: #888888;
+      --gray-light: #BBBBBB;
+      --white: #FFFFFF;
+      --off-white: #F5F3EE;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'Montserrat', sans-serif;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* ── SELECTION ── */
+    ::selection { background: var(--gold); color: var(--black); }
+
+    /* ── UTILITIES ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .gold { color: var(--gold); }
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--white);
+    }
+    .divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .divider-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.9rem 2.2rem;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,0.08);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+    .btn:hover::before { transform: translateX(0); }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+    }
+    .btn-primary:hover { background: var(--gold-light); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    .btn-outline:hover { background: var(--gold); color: var(--black); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .btn svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1.5rem 0;
+      transition: var(--transition);
+    }
+    nav.scrolled {
+      background: rgba(10, 10, 10, 0.96);
+      backdrop-filter: blur(20px);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      text-decoration: none;
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 1px; background: var(--gold);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-cta {
+      font-size: 0.68rem !important;
+      padding: 0.7rem 1.6rem !important;
+    }
+
+    /* hamburger */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 28px; height: 2px; background: var(--white);
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(10,10,10,0.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      justify-content: center; align-items: center;
+      gap: 2.5rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 300;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.25s ease;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .mobile-cta { margin-top: 1rem; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh; min-height: 700px;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.85) 100%),
+        url('https://images.unsplash.com/photo-1631295868223-63265b40d9e4?w=1920&q=80') center/cover no-repeat;
+    }
+    .hero-grain {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 800px;
+      animation: heroFadeUp 1.2s ease both;
+    }
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.5rem;
+      animation: heroFadeUp 1.2s ease 0.15s both;
+    }
+    .hero-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+    .hero-eyebrow span {
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      animation: heroFadeUp 1.2s ease 0.25s both;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--gray-light);
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      animation: heroFadeUp 1.2s ease 0.35s both;
+    }
+
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: heroFadeUp 1.2s ease 0.45s both;
+    }
+
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gray); text-decoration: none;
+      animation: heroFadeUp 1.2s ease 0.6s both;
+    }
+    .hero-scroll-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(var(--gold), transparent);
+      animation: scrollLine 1.5s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* stats bar */
+    .hero-stats {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      background: rgba(201,168,76,0.06);
+      border-top: 1px solid rgba(201,168,76,0.2);
+      backdrop-filter: blur(10px);
+    }
+    .hero-stats-inner {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      divide: horizontal;
+    }
+    .hero-stat {
+      padding: 1.5rem 2rem;
+      text-align: center;
+      border-right: 1px solid rgba(201,168,76,0.15);
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem; font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .hero-stat-label {
+      font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 0.4rem;
+      display: block;
+    }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--gold);
+      overflow: hidden;
+      padding: 0.7rem 0;
+    }
+    .ticker-track {
+      display: flex; gap: 0;
+      animation: ticker 30s linear infinite;
+      width: max-content;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item {
+      display: flex; align-items: center; gap: 1.5rem;
+      padding: 0 2.5rem;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--black);
+      white-space: nowrap;
+    }
+    .ticker-dot { width: 4px; height: 4px; background: var(--black); border-radius: 50%; opacity: 0.4; }
+
+    /* ── SERVICES ── */
+    #services { padding: 8rem 0; }
+    .services-header { text-align: center; margin-bottom: 4rem; }
+    .services-header .divider { justify-content: center; }
+    .services-header .divider-line { max-width: 80px; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(201,168,76,0.15);
+    }
+    .service-card {
+      background: var(--dark);
+      padding: 3rem 2.5rem;
+      transition: background var(--transition);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 2px; background: var(--gold);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover { background: var(--dark2); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.8rem;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .service-card:hover .service-icon { border-color: var(--gold); background: rgba(201,168,76,0.06); }
+    .service-icon svg { width: 22px; height: 22px; fill: var(--gold); }
+
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem; font-weight: 500;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+    .service-desc {
+      font-size: 0.8rem; color: var(--gray);
+      line-height: 1.8;
+    }
+
+    /* ── WHY US ── */
+    #about { padding: 8rem 0; background: var(--dark); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: center;
+    }
+    .about-image {
+      position: relative;
+    }
+    .about-image-main {
+      width: 100%; aspect-ratio: 4/5;
+      object-fit: cover;
+      background:
+        linear-gradient(rgba(10,10,10,0.2), rgba(10,10,10,0.1)),
+        url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80') center/cover no-repeat;
+    }
+    .about-image-badge {
+      position: absolute; bottom: -2rem; right: -2rem;
+      width: 150px; height: 150px;
+      background: var(--gold);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+    }
+    .about-image-badge span:first-child {
+      font-family: var(--font-display);
+      font-size: 3rem; font-weight: 600;
+      color: var(--black); line-height: 1;
+    }
+    .about-image-badge span:last-child {
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--black); opacity: 0.7;
+    }
+
+    .about-content {}
+    .about-features { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .about-feature {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+    }
+    .about-feature-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      border: 1px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .about-feature-icon svg { width: 16px; height: 16px; fill: var(--gold); }
+    .about-feature-title {
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--white); margin-bottom: 0.3rem;
+    }
+    .about-feature-desc { font-size: 0.78rem; color: var(--gray); line-height: 1.7; }
+
+    /* ── FLEET ── */
+    #fleet { padding: 8rem 0; }
+    .fleet-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; }
+    .fleet-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .fleet-card {
+      background: var(--dark);
+      overflow: hidden;
+      transition: transform var(--transition);
+      border: 1px solid transparent;
+    }
+    .fleet-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,0.2); }
+    .fleet-img {
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      width: 100%;
+    }
+    .fleet-img-wrap {
+      height: 200px; overflow: hidden; position: relative;
+    }
+    .fleet-img-bg {
+      height: 200px; width: 100%;
+      transition: transform 0.6s ease;
+      background-size: cover;
+      background-position: center;
+    }
+    .fleet-card:hover .fleet-img-bg { transform: scale(1.05); }
+
+    .fleet-info { padding: 1.8rem; }
+    .fleet-tag {
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.5rem; display: block;
+    }
+    .fleet-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem; font-weight: 500;
+      color: var(--white); margin-bottom: 1rem;
+    }
+    .fleet-specs {
+      display: flex; gap: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .fleet-spec {
+      display: flex; flex-direction: column; gap: 0.2rem;
+    }
+    .fleet-spec-val { font-size: 0.78rem; font-weight: 600; color: var(--white); }
+    .fleet-spec-key { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { padding: 8rem 0; background: var(--dark); }
+    .testimonials-header { text-align: center; margin-bottom: 4rem; }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .testimonial-card {
+      background: var(--dark2);
+      padding: 2.5rem;
+      border-top: 2px solid var(--gold);
+      position: relative;
+    }
+    .testimonial-quote-mark {
+      font-family: var(--font-display);
+      font-size: 5rem; line-height: 0.8;
+      color: var(--gold); opacity: 0.3;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .testimonial-text {
+      font-size: 0.85rem;
+      color: var(--gray-light);
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .testimonial-stars {
+      display: flex; gap: 3px; margin-bottom: 1rem;
+    }
+    .testimonial-stars svg { width: 14px; height: 14px; fill: var(--gold); }
+    .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+    .testimonial-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--gold); display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.1rem; font-weight: 600;
+      color: var(--black);
+    }
+    .testimonial-name {
+      font-size: 0.78rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--white);
+    }
+    .testimonial-role { font-size: 0.7rem; color: var(--gray); }
+
+    /* ── PROCESS ── */
+    #process { padding: 8rem 0; }
+    .process-header { text-align: center; margin-bottom: 5rem; }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: rgba(201,168,76,0.12);
+      position: relative;
+    }
+    .process-step {
+      background: var(--black);
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .process-num {
+      font-family: var(--font-display);
+      font-size: 4rem; font-weight: 600;
+      color: rgba(201,168,76,0.12);
+      line-height: 1;
+      position: absolute; top: 1rem; right: 1.5rem;
+    }
+    .process-icon-wrap {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .process-icon-wrap svg { width: 26px; height: 26px; fill: var(--gold); }
+    .process-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem; font-weight: 500;
+      color: var(--white); margin-bottom: 0.6rem;
+    }
+    .process-desc { font-size: 0.78rem; color: var(--gray); line-height: 1.7; }
+
+    /* ── CONTACT ── */
+    #contact { padding: 8rem 0; background: var(--dark); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+    .contact-info {}
+    .contact-details { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .contact-item-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-item-icon svg { width: 18px; height: 18px; fill: var(--gold); }
+    .contact-item-label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.3rem; }
+    .contact-item a, .contact-item p {
+      font-size: 0.9rem; color: var(--white); text-decoration: none;
+      transition: color var(--transition);
+    }
+    .contact-item a:hover { color: var(--gold); }
+    .contact-social { margin-top: 2.5rem; display: flex; gap: 0.8rem; }
+    .social-link {
+      width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; transition: var(--transition);
+      color: var(--gray-light);
+    }
+    .social-link:hover { border-color: var(--gold); color: var(--gold); }
+    .social-link svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ── QUOTE FORM ── */
+    .quote-form-wrap {
+      background: var(--dark2);
+      border: 1px solid rgba(201,168,76,0.12);
+      padding: 2.5rem;
+    }
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem; font-weight: 400;
+      color: var(--white); margin-bottom: 1.8rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+    .form-group label {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gray);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--dark3);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      padding: 0.8rem 1rem;
+      transition: border-color var(--transition);
+      outline: none;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+    .form-group select option { background: var(--dark3); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-submit { width: 100%; padding: 1rem; margin-top: 0.5rem; font-size: 0.75rem; }
+    .form-success {
+      display: none; text-align: center; padding: 2rem;
+    }
+    .form-success-icon {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.2rem;
+    }
+    .form-success-icon svg { width: 28px; height: 28px; fill: var(--gold); }
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem; color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .form-success p { font-size: 0.82rem; color: var(--gray); }
+
+    /* ── FAQ ── */
+    #faq { padding: 8rem 0; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .faq-col {}
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.3rem 0; cursor: pointer;
+      font-size: 0.88rem; font-weight: 500;
+      color: var(--white); gap: 1rem;
+      transition: color var(--transition);
+    }
+    .faq-q:hover { color: var(--gold); }
+    .faq-toggle {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border: 1px solid rgba(201,168,76,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--gold);
+      transition: transform var(--transition);
+    }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-a {
+      overflow: hidden; max-height: 0;
+      transition: max-height 0.4s ease;
+    }
+    .faq-item.open .faq-a { max-height: 200px; }
+    .faq-a p { padding: 0 0 1.3rem; font-size: 0.8rem; color: var(--gray); line-height: 1.8; }
+
+    /* ── FINAL CTA ── */
+    .cta-section {
+      padding: 8rem 0;
+      background:
+        linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.8) 100%),
+        url('https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1920&q=80') center/cover no-repeat;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 1px; height: 80px;
+      background: linear-gradient(var(--gold), transparent);
+    }
+    .cta-section .section-title { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.2rem; }
+    .cta-section p { font-size: 0.88rem; color: var(--gray-light); max-width: 500px; margin: 0 auto 2.5rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 4rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem; margin-bottom: 3rem;
+    }
+    .footer-brand {}
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem; font-weight: 600;
+      color: var(--white); text-decoration: none;
+      display: block; margin-bottom: 1rem;
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline { font-size: 0.78rem; color: var(--gray); line-height: 1.8; max-width: 260px; }
+    .footer-social { display: flex; gap: 0.6rem; margin-top: 1.5rem; }
+    .footer-col-title {
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.2rem; display: block;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-links a {
+      font-size: 0.8rem; color: var(--gray);
+      text-decoration: none; transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-contact-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-contact-list li { display: flex; align-items: flex-start; gap: 0.6rem; }
+    .footer-contact-list li svg { width: 14px; height: 14px; fill: var(--gold); flex-shrink: 0; margin-top: 3px; }
+    .footer-contact-list a, .footer-contact-list span { font-size: 0.78rem; color: var(--gray); text-decoration: none; transition: color var(--transition); }
+    .footer-contact-list a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy { font-size: 0.72rem; color: var(--gray); }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: 0.72rem; color: var(--gray); text-decoration: none; transition: color var(--transition); }
+    .footer-legal a:hover { color: var(--gold); }
+
+    /* ── FADE-IN OBSERVER ── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── BACK TO TOP ── */
+    #backTop {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 500;
+      width: 46px; height: 46px;
+      background: var(--gold); color: var(--black);
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity var(--transition);
+    }
+    #backTop.show { opacity: 1; pointer-events: all; }
+    #backTop:hover { background: var(--gold-light); }
+    #backTop svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .fleet-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { gap: 4rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+
+      .hero-stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .hero-stat:nth-child(2) { border-right: none; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-image-badge { right: 0; bottom: -1.5rem; }
+      .fleet-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .faq-grid { grid-template-columns: 1fr; gap: 0; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .form-row { grid-template-columns: 1fr; }
+      .fleet-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
+    @media (max-width: 480px) {
+      .process-steps { grid-template-columns: 1fr; }
+      .hero-stats-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVIGATION ══ -->
+<nav id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo"><span>YOUR LOGO</span></a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#fleet">Fleet</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="get-quote.html" class="btn btn-primary nav-cta">
+        Get a Quote
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" class="mobile-nav-link">Services</a>
+  <a href="#fleet" class="mobile-nav-link">Fleet</a>
+  <a href="#about" class="mobile-nav-link">About</a>
+  <a href="#faq" class="mobile-nav-link">FAQ</a>
+  <a href="#contact" class="mobile-nav-link">Contact</a>
+  <a href="get-quote.html" class="btn btn-primary mobile-cta">Get a Quote</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>Premium Chauffeur Service</span>
+      </div>
+      <h1 class="hero-title">
+        Where Every<br />
+        Journey Becomes<br />
+        <em>Extraordinary</em>
+      </h1>
+      <p class="hero-sub">
+        Discreet, punctual, and impeccably presented chauffeur services for executives, VIP clients, and distinguished travellers.
+      </p>
+      <div class="hero-actions">
+        <a href="get-quote.html" class="btn btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 10c-4 0-6 2-6 2v1h12v-1s-2-2-6-2z"/></svg>
+          Book Your Ride
+        </a>
+        <a href="#services" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg>
+          Explore Services
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="container">
+      <div class="hero-stats-inner">
+        <div class="hero-stat">
+          <span class="hero-stat-num">12+</span>
+          <span class="hero-stat-label">Years of Excellence</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">5K+</span>
+          <span class="hero-stat-label">Satisfied Clients</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">24/7</span>
+          <span class="hero-stat-label">Available</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">100%</span>
+          <span class="hero-stat-label">On-Time Rate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#services" class="hero-scroll" aria-label="Scroll down">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </a>
+</section>
+
+<!-- ══ TICKER ══ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-item">Airport Transfers <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Corporate Travel <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Wedding Cars <span class="ticker-dot"></span></div>
+    <div class="ticker-item">VIP Events <span class="ticker-dot"></span></div>
+    <div class="ticker-item">City Tours <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Private Transfers <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Executive Travel <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Hotel Partnerships <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Airport Transfers <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Corporate Travel <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Wedding Cars <span class="ticker-dot"></span></div>
+    <div class="ticker-item">VIP Events <span class="ticker-dot"></span></div>
+    <div class="ticker-item">City Tours <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Private Transfers <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Executive Travel <span class="ticker-dot"></span></div>
+    <div class="ticker-item">Hotel Partnerships <span class="ticker-dot"></span></div>
+  </div>
+</div>
+
+<!-- ══ SERVICES ══ -->
+<section id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Tailored for Every Occasion</h2>
+      <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line" style="background:linear-gradient(270deg,var(--gold),transparent)"></div></div>
+    </div>
+    <div class="services-grid reveal">
+      <!-- 1 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+        </div>
+        <div class="service-name">Airport Transfers</div>
+        <p class="service-desc">Seamless arrivals and departures. We monitor flight status in real-time and adjust pickup times accordingly — no stress, no rushing.</p>
+      </div>
+      <!-- 2 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.33C18 2.54 15.96.5 13.5.5c-1.27 0-2.4.53-3.23 1.38C9.57 1.03 8.44.5 7.17.5 4.71.5 2.67 2.54 2.67 5c0 .45.11.89.18 1.33H.83C.37 6 0 6.37 0 6.83V9h24V6.83C24 6.37 23.63 6 23.17 6H20zM13.5 2c.92 0 1.67.75 1.67 1.67 0 .92-.75 1.67-1.67 1.67h-2.83c.35-.83 1.18-1.38 2.15-1.38-.33 0-.67.05-1 .13.34-.75 1.08-1.29 1.98-1.29z"/><path d="M0 10v10c0 1.11.89 2 2 2h20c1.11 0 2-.89 2-2V10H0z"/></svg>
+        </div>
+        <div class="service-name">Corporate Travel</div>
+        <p class="service-desc">Premium transport for executives and business teams. Confidential, punctual, and equipped with every professional amenity.</p>
+      </div>
+      <!-- 3 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 11c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z"/></svg>
+        </div>
+        <div class="service-name">Wedding & Events</div>
+        <p class="service-desc">Make your most important day unforgettable. Beautifully presented vehicles, red carpet service, and impeccable timing.</p>
+      </div>
+      <!-- 4 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M17.8 5c-.3-.9-1.1-1.5-2.1-1.5H8.3C7.3 3.5 6.5 4.1 6.2 5L4 11v8c0 .6.4 1 1 1h1c.6 0 1-.4 1-1v-1h10v1c0 .6.4 1 1 1h1c.6 0 1-.4 1-1v-8l-2.2-6zM8.3 5h7.4l1.5 4.5H6.8L8.3 5zM6.5 14c-.8 0-1.5-.7-1.5-1.5S5.7 11 6.5 11s1.5.7 1.5 1.5S7.3 14 6.5 14zm11 0c-.8 0-1.5-.7-1.5-1.5S16.7 11 17.5 11s1.5.7 1.5 1.5S18.3 14 17.5 14z"/></svg>
+        </div>
+        <div class="service-name">Hourly Chauffeur</div>
+        <p class="service-desc">Your personal driver at your disposal. Multiple stops, business meetings, or an evening out — all handled with grace.</p>
+      </div>
+      <!-- 5 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div class="service-name">City & Tour Transfers</div>
+        <p class="service-desc">Explore destinations in complete comfort. Our chauffeurs double as knowledgeable local guides for an elevated experience.</p>
+      </div>
+      <!-- 6 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3a4 4 0 0 1 0 8 4 4 0 0 1 0-8zm0 10c-4 0-6 2-6 2v1h12v-1s-2-2-6-2z"/></svg>
+        </div>
+        <div class="service-name">VIP & Security</div>
+        <p class="service-desc">Discreet protection and transport for high-profile individuals. Trained professionals ensuring safety and privacy at all times.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT / WHY US ══ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <div class="about-image-main" style="height: 450px;"></div>
+        <div class="about-image-badge">
+          <span>12+</span>
+          <span>Years of Premium Service</span>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <span class="section-label">Why Choose Us</span>
+        <h2 class="section-title">The Standard<br /><em>Others Aspire To</em></h2>
+        <div class="divider"><div class="divider-line" style="max-width:80px;"></div><div class="divider-diamond"></div></div>
+        <p style="font-size:0.85rem;color:var(--gray);line-height:1.85;">
+          EliteRide was founded on a simple belief: luxury travel should be effortless. From the moment you book until you arrive, every detail is curated for your comfort, safety, and peace of mind.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <div>
+              <div class="about-feature-title">Vetted & Certified Chauffeurs</div>
+              <p class="about-feature-desc">All our chauffeurs undergo rigorous background checks, professional training, and are held to the highest conduct standards.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></div>
+            <div>
+              <div class="about-feature-title">Punctuality Guaranteed</div>
+              <p class="about-feature-desc">We track flights, monitor traffic, and arrive 15 minutes early — every time. Your schedule is our commitment.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+            <div>
+              <div class="about-feature-title">24/7 Concierge Support</div>
+              <p class="about-feature-desc">Our team is always available. Changes, special requests, or last-minute bookings — we handle everything seamlessly.</p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:2.5rem;">
+          <a href="get-quote.html" class="btn btn-primary">Request a Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FLEET ══ -->
+<section id="fleet">
+  <div class="container">
+    <div class="fleet-header reveal">
+      <div>
+        <span class="section-label">Our Fleet</span>
+        <h2 class="section-title">Engineered<br /><em>for Excellence</em></h2>
+      </div>
+      <a href="get-quote.html" class="btn btn-outline">Reserve a Vehicle</a>
+    </div>
+    <div class="fleet-grid">
+      <div class="fleet-card reveal">
+        <div class="fleet-img-wrap">
+          <div class="fleet-img-bg" style=" background-image:url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&q=80') "></div>
+        </div>
+        <div class="fleet-info">
+          <span class="fleet-tag">Business Class</span>
+          <div class="fleet-name">Mercedes-Benz S-Class</div>
+          <div class="fleet-specs">
+            <div class="fleet-spec"><span class="fleet-spec-val">3</span><span class="fleet-spec-key">Passengers</span></div>
+            <div class="fleet-spec"><span class="fleet-spec-val">3</span><span class="fleet-spec-key">Luggage</span></div>
+            <div class="fleet-spec"><span class="fleet-spec-val">WiFi</span><span class="fleet-spec-key">Amenities</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="fleet-card reveal">
+        <div class="fleet-img-wrap">
+          <div class="fleet-img-bg" style="background-image:url('https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=600&q=80')"></div>
+        </div>
+        <div class="fleet-info">
+          <span class="fleet-tag">First Class</span>
+          <div class="fleet-name">BMW 7 Series</div>
+          <div class="fleet-specs">
+            <div class="fleet-spec"><span class="fleet-spec-val">3</span><span class="fleet-spec-key">Passengers</span></div>
+            <div class="fleet-spec"><span class="fleet-spec-val">3</span><span class="fleet-spec-key">Luggage</span></div>
+            <div class="fleet-spec"><span class="fleet-spec-val">WiFi</span><span class="fleet-spec-key">Amenities</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="fleet-card reveal">
+        <div class="fleet-img-wrap">
+          <div class="fleet-img-bg" style="background-image:url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80')"></div>
+        </div>
+        <div class="fleet-info">
+          <span class="fleet-tag">VIP Group</span>
+          <div class="fleet-name">Mercedes V-Class</div>
+          <div class="fleet-specs">
+            <div class="fleet-spec"><span class="fleet-spec-val">7</span><span class="fleet-spec-key">Passengers</span></div>
+            <div class="fleet-spec"><span class="fleet-spec-val">6</span><span class="fleet-spec-key">Luggage</span></div>
+            <div class="fleet-spec"><span class="fleet-spec-val">WiFi</span><span class="fleet-spec-key">Amenities</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <span class="section-label">Client Reviews</span>
+      <h2 class="section-title">Words from Those<br /><em>Who Know Best</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <span class="testimonial-quote-mark">"</span>
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p class="testimonial-text">Exceptional service from start to finish. The chauffeur was professional, the car was immaculate, and everything ran like clockwork. Our CEO was thoroughly impressed.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JM</div>
+          <div>
+            <div class="testimonial-name">James Morrison</div>
+            <div class="testimonial-role">Director, Morgan & Associates</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <span class="testimonial-quote-mark">"</span>
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p class="testimonial-text">Used EliteRide for our wedding day. Everything was perfect — the car was stunning, driver arrived early, and the whole experience added so much to our special day.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SL</div>
+          <div>
+            <div class="testimonial-name">Sarah & Luke</div>
+            <div class="testimonial-role">Wedding Clients</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <span class="testimonial-quote-mark">"</span>
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p class="testimonial-text">As a frequent traveller, I've tried many services. EliteRide consistently delivers. The airport pickup is always flawless — they track my flights and are always there waiting.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RP</div>
+          <div>
+            <div class="testimonial-name">Rachel Price</div>
+            <div class="testimonial-role">Senior Partner, Global Finance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROCESS ══ -->
+<section id="process">
+  <div class="container">
+    <div class="process-header reveal">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">Four Steps to<br /><em>Perfect Travel</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <span class="process-num">01</span>
+        <div class="process-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 10c-4 0-6 2-6 2v1h12v-1s-2-2-6-2z"/></svg>
+        </div>
+        <div class="process-title">Request a Quote</div>
+        <p class="process-desc">Fill in your journey details online in under 2 minutes. No account needed.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-num">02</span>
+        <div class="process-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        </div>
+        <div class="process-title">Receive Confirmation</div>
+        <p class="process-desc">Our team reviews and confirms your booking with a personalised email within the hour.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-num">03</span>
+        <div class="process-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+        </div>
+        <div class="process-title">Meet Your Chauffeur</div>
+        <p class="process-desc">Your professionally presented driver arrives early with a name board and ready to assist.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-num">04</span>
+        <div class="process-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        </div>
+        <div class="process-title">Arrive in Style</div>
+        <p class="process-desc">Relax and enjoy the journey. Arrive refreshed, on time, and ready for what matters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Let's Plan<br /><em>Your Journey</em></h2>
+        <div class="divider"><div class="divider-line" style="max-width:80px;"></div><div class="divider-diamond"></div></div>
+        <p style="font-size:0.82rem;color:var(--gray);line-height:1.85;max-width:380px;">
+          Ready to experience the finest in chauffeured transportation? Our team is available around the clock to answer your questions and arrange your booking.
+        </p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <a href="tel:+447911123456">+44 7911 123 456</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <a href="mailto:info@eliteride.com">info@eliteride.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+            <div>
+              <div class="contact-item-label">Location</div>
+              <a href="https://maps.google.com/?q=London,UK" target="_blank" rel="noopener">London, United Kingdom</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-social">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Quote Form -->
+      <div class="quote-form-wrap reveal">
+        <div class="form-title">Request a Quote</div>
+        <form id="contactQuoteForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cq-name">Full Name *</label>
+              <input type="text" id="cq-name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="cq-email">Email *</label>
+              <input type="email" id="cq-email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cq-phone">Phone *</label>
+              <input type="tel" id="cq-phone" placeholder="+44..." required />
+            </div>
+            <div class="form-group">
+              <label for="cq-service">Service Type *</label>
+              <select id="cq-service" required>
+                <option value="">Select service</option>
+                <option>Airport Transfer</option>
+                <option>Corporate Travel</option>
+                <option>Wedding</option>
+                <option>Hourly Hire</option>
+                <option>City Tour</option>
+                <option>VIP Event</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cq-pickup">Pickup Location *</label>
+            <input type="text" id="cq-pickup" placeholder="Enter pickup address" required />
+          </div>
+          <div class="form-group">
+            <label for="cq-dest">Destination *</label>
+            <input type="text" id="cq-dest" placeholder="Enter destination" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cq-date">Date *</label>
+              <input type="date" id="cq-date" required />
+            </div>
+            <div class="form-group">
+              <label for="cq-time">Pickup Time *</label>
+              <input type="time" id="cq-time" required />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            Send Quote Request
+          </button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+          </div>
+          <h3>Request Received</h3>
+          <p>Thank you. Your quote request has been received. Our team will contact you shortly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:4rem;" class="reveal">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Common Questions<br /><em>Answered</em></h2>
+    </div>
+    <div class="faq-grid">
+      <div>
+        <div class="faq-item">
+          <div class="faq-q">How far in advance should I book? <span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p>We recommend booking at least 24 hours in advance, though we can often accommodate last-minute requests. For weddings and large events, please book as early as possible.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do you offer fixed-price quotes? <span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p>Yes. All our quotes are fixed-price with no hidden charges. The price you receive is the price you pay — no surge pricing, no surprises.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What happens if my flight is delayed? <span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p>We monitor all incoming flights in real-time. If your flight is delayed, your chauffeur will adjust accordingly at no extra charge. You'll never be waiting and never be charged for delays outside your control.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I request a specific vehicle? <span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p>Absolutely. You can specify your preferred vehicle class when submitting your quote request, and we'll do our best to accommodate your preference.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="faq-item">
+          <div class="faq-q">Are child seats available? <span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p>Yes, we can provide child seats upon request. Please indicate this when completing your quote form and we will ensure an appropriate seat is fitted prior to your journey.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is there a waiting charge? <span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p>For airport pickups, we include a complimentary waiting period of 60 minutes after the scheduled landing. For all other services, waiting time is charged at a transparent per-minute rate.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do you offer corporate accounts? <span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p>Yes. We offer tailored corporate accounts with monthly invoicing, priority booking, and dedicated account managers. Contact us to discuss a package suited to your business needs.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What areas do you cover? <span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p>We primarily operate across Greater London and all major UK airports, but can accommodate long-distance and nationwide journeys upon request.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══ -->
+<section class="cta-section">
+  <div class="container">
+    <span class="section-label">Ready to Travel?</span>
+    <h2 class="section-title">Experience the EliteRide<br /><em>Difference</em></h2>
+    <p>Join thousands of satisfied clients who trust EliteRide for their premium transportation needs. Your journey begins with a single click.</p>
+    <div class="cta-actions">
+      <a href="get-quote.html" class="btn btn-primary">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        Get an Instant Quote
+      </a>
+      <a href="tel:+447911123456" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        Call Us Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo"><span>YOUR LOGO</span></a>
+        <p class="footer-tagline">Premium chauffeur services for discerning clients across London and the United Kingdom.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-title">Quick Links</span>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#fleet">Fleet</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="get-quote.html">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Services</span>
+        <ul class="footer-links">
+          <li><a href="#services">Airport Transfers</a></li>
+          <li><a href="#services">Corporate Travel</a></li>
+          <li><a href="#services">Wedding Cars</a></li>
+          <li><a href="#services">Hourly Hire</a></li>
+          <li><a href="#services">VIP Events</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Contact</span>
+        <ul class="footer-contact-list">
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            <a href="tel:+447911123456">+44 7911 123 456</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:info@eliteride.com">info@eliteride.com</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <a href="https://maps.google.com/?q=London,UK" target="_blank" rel="noopener"><span>London, United Kingdom</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 EliteRide Chauffeur Services. All rights reserved || Designed By <a style="color: #C9A84C;" href="https://github.com/devnayem1">Developer Nayem</a>.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a><a href=""></a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="backTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+</button>
+
+<script>
+  // ── NAV SCROLL ──
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+    document.getElementById('backTop').classList.toggle('show', window.scrollY > 400);
+  }, { passive: true });
+
+  // ── HAMBURGER ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-nav-link, .mobile-cta').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ── BACK TO TOP ──
+  document.getElementById('backTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ── FAQ ──
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // ── REVEAL ON SCROLL ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── CONTACT QUICK FORM ──
+  const contactForm = document.getElementById('contactQuoteForm');
+  const formSuccess = document.getElementById('formSuccess');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = contactForm.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.innerHTML = '<svg viewBox="0 0 24 24" style="animation:spin .8s linear infinite"><path d="M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z"/></svg> Sending...';
+
+      // Formspree integration — replace YOUR_FORM_ID
+      const formData = {
+        name: document.getElementById('cq-name').value,
+        email: document.getElementById('cq-email').value,
+        phone: document.getElementById('cq-phone').value,
+        service: document.getElementById('cq-service').value,
+        pickup: document.getElementById('cq-pickup').value,
+        destination: document.getElementById('cq-dest').value,
+        date: document.getElementById('cq-date').value,
+        time: document.getElementById('cq-time').value,
+      };
+
+      // Simulate send (replace with Formspree fetch)
+      await new Promise(r => setTimeout(r, 1200));
+
+      contactForm.style.display = 'none';
+      formSuccess.style.display = 'block';
+    });
+  }
+
+  // spin animation
+  const style = document.createElement('style');
+  style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+  document.head.appendChild(style);
+</script>
+</body>
+</html>
